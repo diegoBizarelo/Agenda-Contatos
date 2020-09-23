@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="EntityConfig\" />
     <Folder Include="Repository\" />
   </ItemGroup>
@@ -17,6 +16,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SGA.ApplicationCore\SGA.ApplicationCore.csproj" />
   </ItemGroup>
 
 </Project>
