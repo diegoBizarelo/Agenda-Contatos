@@ -9,7 +9,7 @@ using SGA.Infrastructure.Data;
 
 namespace SGA.Infrastructure.Migrations
 {
-    [DbContext(typeof(PessoaContext))]
+    [DbContext(typeof(BaseContext))]
     [Migration("20200923114809_Initial")]
     partial class Initial
     {

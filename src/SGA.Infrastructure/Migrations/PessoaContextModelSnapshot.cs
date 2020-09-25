@@ -8,7 +8,7 @@ using SGA.Infrastructure.Data;
 
 namespace SGA.Infrastructure.Migrations
 {
-    [DbContext(typeof(PessoaContext))]
+    [DbContext(typeof(BaseContext))]
     partial class PessoaContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

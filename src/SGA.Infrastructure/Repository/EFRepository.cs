@@ -12,8 +12,8 @@ namespace SGA.Infrastructure.Repository
     public class EFRepository<T> : IRepository<T> where T : class
     {
 
-        private readonly PessoaContext _dbContext;
-        public EFRepository(PessoaContext context)
+        private readonly BaseContext _dbContext;
+        public EFRepository(BaseContext context)
         {
             _dbContext = context;
         }

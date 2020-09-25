@@ -22,7 +22,7 @@ namespace SGA.UIWeb
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<PessoaContext>();
+                    var context = services.GetRequiredService<BaseContext>();
                     DbInitializer.Initialize(context);
                 } catch (Exception ex)
                 {

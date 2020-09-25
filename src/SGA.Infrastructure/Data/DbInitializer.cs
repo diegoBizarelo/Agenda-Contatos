@@ -9,7 +9,7 @@ namespace SGA.Infrastructure.Data
 {
     public static class DbInitializer
     {
-        public static void Initialize (PessoaContext context)
+        public static void Initialize (BaseContext context)
         {
             if (context.Pessoas.Any())
             {

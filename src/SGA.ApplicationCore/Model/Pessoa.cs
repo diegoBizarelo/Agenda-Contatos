@@ -11,6 +11,7 @@ namespace SGA.ApplicationCore.Model
 
         [Required]
         public string Nome { get; set; }
+
         [Required]
         public string Sobrenome { get; set; }
 
@@ -19,7 +20,7 @@ namespace SGA.ApplicationCore.Model
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Nascimento { get; set; }
 
-        public int proximoAniversarioDias
+        public int DiasAteProximoAniversario
         {
             get
             {
@@ -38,7 +39,6 @@ namespace SGA.ApplicationCore.Model
 
         private int CalcDias()
         {
-
             DateTime aniversarioEsteAno = new DateTime(DateTime.Now.Year, Nascimento.Month, Nascimento.Day);
             TimeSpan intervalo = aniversarioEsteAno - DateTime.Now;
 
@@ -47,10 +47,8 @@ namespace SGA.ApplicationCore.Model
                 aniversarioEsteAno = new DateTime(DateTime.Now.Year + 1, Nascimento.Month, Nascimento.Day);
                 intervalo = aniversarioEsteAno - DateTime.Now;
             }
-            else if (intervalo.Days == 0 &&
-                       intervalo.Hours <= 0 &&
-                       intervalo.Minutes <= 0 &&
-                       intervalo.Seconds <= 0 &&
+            else if (intervalo.Days == 0 && intervalo.Hours <= 0 &&
+                       intervalo.Minutes <= 0 && intervalo.Seconds <= 0 &&
                        intervalo.Milliseconds <= 0)
             {
                 return 0;

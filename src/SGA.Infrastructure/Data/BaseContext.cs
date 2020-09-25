@@ -6,9 +6,9 @@ using SGA.ApplicationCore.Model;
 
 namespace SGA.Infrastructure.Data
 {
-    public class PessoaContext : DbContext
+    public class BaseContext : DbContext
     {
-        public PessoaContext(DbContextOptions<PessoaContext> options) : base(options)
+        public BaseContext(DbContextOptions<BaseContext> options) : base(options)
         {
 
         }
