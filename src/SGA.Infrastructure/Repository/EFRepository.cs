@@ -12,7 +12,7 @@ namespace SGA.Infrastructure.Repository
     public class EFRepository<T> : IRepository<T> where T : class
     {
 
-        private readonly BaseContext _dbContext;
+        protected readonly BaseContext _dbContext;
         public EFRepository(BaseContext context)
         {
             _dbContext = context;
@@ -37,11 +37,13 @@ namespace SGA.Infrastructure.Repository
         public void Remove(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
+            _dbContext.SaveChanges();
         }
 
-        public IEnumerable<T> Search(Expression<Func<T, bool>> predicate)
+        public virtual IEnumerable<T> Search(Expression<Func<T, bool>> predicate)
         {
-            return _dbContext.Set<T>().Where(predicate).AsEnumerable();
+            var result = _dbContext.Set<T>().Where(predicate);
+            return result.AsEnumerable();
         }
 
         public T UpDate(T entity)
